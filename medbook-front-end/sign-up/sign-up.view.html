@@ -1,0 +1,33 @@
+<link rel="stylesheet" type="text/css" href="sign-up/sign-up.css" >
+
+<section class="container sign-up">
+	<h2>Sign Up</h2>
+	<div class="row">
+		<div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <form>
+                        <fieldset id="PersonalData">
+                            <div class="inputLine">
+                                <div><label>Name</label><span class="fieldRequired">*<span></div>
+                                <div><input id="name" type="text" data-mytype="words"></input></div>
+                            </div>
+                            <div class="inputLine">
+                                <div><label>Last Name</label><span class="fieldRequired">*<span></div>
+                                <div><input id="lastName" type="text" data-mytype="words"></input></div>
+                            </div>
+                            <div class="inputLine">
+                                <div><label>Email</label><span class="fieldRequired">*<span></div>
+                                <div><input id="email" type="text" data-mytype="email"></input></div>
+                            </div>
+                            <button type="button" id="btnSignUp" disabled>Sign Up</button>
+                            <button type="button" id="cancel" disabled>Cancel</button>
+                        </fieldset>
+                        <div><p id="errorMessages" class="error"></p></div>
+                        <input id="btnSubmit" type="submit" hidden disabled></input>
+                    </form>
+                </div>
+            </row>
+        </div>
+	</div>
+</section>

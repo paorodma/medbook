@@ -1,0 +1,4 @@
+[
+  { "id":"1", "name": "Fasting glucose", "description": "Glucose level after 12 hour fasting", "minValue": "60", "maxValue": "110"},
+  { "id":"2", "name": "Hemoglobyn", "description": "Hempglobyn level after 12 hour fasting", "minValue": "12", "maxValue": "16"}
+]

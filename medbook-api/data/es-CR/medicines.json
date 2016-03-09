@@ -1,0 +1,8 @@
+[
+	{ "id":"1", "name": "Prozac", "genericName": "fluoxetina", 
+		"description": "inhibidor de recaptación de seratonina", "category": "Antidepresivo", 
+		"sideEffects": "debilidad, ansiedad, mareo, temblores, diarrea, dispepsia, náuseas, nerviosismo, insomnio, cefalea, baja en libido, anorexia, pérdida de apetito." },
+	{ "id":"2", "name": "Yasmin", "genericName": "drospirenone y estradiol ethinyl", 
+		"description": "Previene la ovulación", "category": "Anticonceptivo", 
+		"sideEffects": "Dolor de busto, cefalea, sangrado severo, periodos menstruales irregulares, náuseas, adelanto de menstruación, duración de periodo prolongada" }
+]

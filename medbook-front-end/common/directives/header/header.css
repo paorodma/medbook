@@ -1,0 +1,14 @@
+.header-content{
+	background-color: #6195ED;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+img {
+	height:40px;
+}
+
+.header-content .signin {
+	color:white;	
+	padding-top: 20px; 
+}

@@ -1,0 +1,4 @@
+[
+  { "id":"1", "name": "Glucosa en Ayunas", "description": "Nivel de glucosa después de 12 horas de ayuno", "minValue": "60", "maxValue": "110"},
+  { "id":"2", "name": "Hemoglobina", "description": "Nivel de hemoglobina después de 12 horas de ayuno", "minValue": "12", "maxValue": "16"}
+]

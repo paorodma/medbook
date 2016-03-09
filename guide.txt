@@ -1,0 +1,20 @@
+Para el proyecto
+1 - Modelar los datos en JSON de lo que va a devolver el API
+2 - API
+	Get - Para traer todos
+	POST - agregar uno 
+	PUT - modificar
+	DELETE - borrar 
+3 - Front end
+4 - Back end
+
+Notes
+ - ui-router: 
+ - css por página
+ - localize: 
+ - security: 
+ - graficos: http://jtblin.github.io/angular-chart.js/
+ - usar rem en vez de px
+ - validación de datos
+ - testing con Karma
+ - node commands

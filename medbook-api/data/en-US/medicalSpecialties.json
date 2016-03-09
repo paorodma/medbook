@@ -1,0 +1,14 @@
+[
+	{ "id":"1", "name": "Psychiatry" },
+	{ "id":"2", "name": "Pediatrics" },
+	{ "id":"3", "name": "Surgery" },
+	{ "id":"4", "name": "Oncology" },
+	{ "id":"5", "name": "Emergency Medicine" },
+	{ "id":"6", "name": "Cardiology" },
+	{ "id":"7", "name": "Gastroenterology" },
+	{ "id":"8", "name": "Internal Medicine" },
+	{ "id":"9", "name": "Neurology" },
+	{ "id":"10", "name": "Physical Therapy" },
+	{ "id":"11", "name": "Nutrition" }, 
+	{ "id":"12", "name": "Psychology" }
+]

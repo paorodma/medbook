@@ -1,0 +1,4 @@
+[
+	{ "id":"1", "name": "Prozac", "genericName": "fluoxetine", "description": "serotonin reuptake inhibitors", "category": "Antidepressive", "sideEffects": "weakness, anxiety, drowsiness, tremor, diarrhea, dyspepsia, nausea, nervousness, insomnia, headache, xerostomia, decreased libido, anorexia, and decreased appetite. Other side effects include bulimia nervosa, dizziness, skin rash, and diaphoresis" },
+	{ "id":"2", "name": "Yasmin", "genericName": "drospirenone and ethinyl estradiol", "description": "prevents ovulation", "category": "Birth Control", "sideEffects": "Breast pain or tenderness, headache, severe and throbbing heavy non-menstrual vaginal bleeding, irregular menstrual periods, nausea, normal menstrual bleeding occurring earlier, possibly lasting longer than expected" }
+]

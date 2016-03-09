@@ -1,0 +1,14 @@
+[
+	{ "id":"1", "name": "Psiquiatría" },
+	{ "id":"2", "name": "Pediatría" },
+	{ "id":"3", "name": "Cirugía" },
+	{ "id":"4", "name": "Oncología" },
+	{ "id":"5", "name": "Emergenciología" },
+	{ "id":"6", "name": "Cardiología" },
+	{ "id":"7", "name": "Gastroenterología" },
+	{ "id":"8", "name": "Medicina Interna" },
+	{ "id":"9", "name": "Neurología" },
+	{ "id":"10", "name": "Terapia Física" },
+	{ "id":"11", "name": "Nutrición" }, 
+	{ "id":"12", "name": "Psicología" }
+]

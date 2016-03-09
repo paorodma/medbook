@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="sign-in/sign-in.css" >
+
+<section class="container sign-in">
+	<h2>Sign In</h2>
+	<div class="row">
+		<div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <form>
+                        <fieldset id="PersonalData">
+                            <div class="inputLine">
+                                <div><label>Email</label><span class="fieldRequired">*<span></div>
+                                <div><input id="email" type="text" data-mytype="email"></input></div>
+                            </div>
+                            <div class="inputLine">
+                                <div><label>Password</label><span class="fieldRequired">*<span></div>
+                                <div><input id="password" type="text" data-mytype="email"></input></div>
+                            </div>
+               
+                            <button type="button" id="btnSignIn" disabled>Sign In</button>
+                            <button type="button" id="cancel" disabled>Cancel</button>
+                        </fieldset>
+                        <div><p id="errorMessages" class="error"></p></div>
+                        <input id="btnSubmit" type="submit" hidden disabled></input>
+                    </form>
+                </div>
+            </row>
+        </div>
+	</div>
+</section>
