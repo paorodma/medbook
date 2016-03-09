@@ -5,6 +5,7 @@ To run this project:
 
  This project is added in github @ https://github.com/paorodma/medbook
 
+
  To set up a project from git:
  1. create repository
  2. Go to folder where the code is and open a git bash
