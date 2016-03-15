@@ -9,6 +9,19 @@ function GetAll(req, res){
 	});
 }
 
+function FindByUserId(userId, callback){
+	console.log("Find Doctor by userId");
+	Model.findOne({'user': userId })
+		.then(function(result){
+			console.log(result);
+			callback(result);
+		})
+		.catch(function(err){
+			Logger.log(err, "E", "doctorController.FindByUserId");
+			callback(err);
+		})
+}
+
 function GetOne(req, res){
 	console.log('doctorController.GetOne: ' + req.params.doctor_id);
 	Model.findById(req.params.doctor_id)
@@ -67,7 +80,8 @@ function Delete(req, res){
 }
 
 module.exports = {
-	GetAll:GetAll, 
+	GetAll:GetAll,
+	FindByUserId: FindByUserId, 
 	GetProfile:GetOne, 
 	New:New,
 	UpdateProfile: Update,

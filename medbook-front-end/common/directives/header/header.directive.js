@@ -8,11 +8,11 @@ function header(){
 		restrict: 'E',
 		templateUrl: '/common/directives/header/header.tmpl.html',
 		bindToController : true,
-		controllerAs: 'header-vm',
+		controllerAs: 'headerVm',
 		controller: headerController
 	}	
 }
 
-function headerController(){
+function headerController($scope){
 	console.log("Inside headerController");
 }

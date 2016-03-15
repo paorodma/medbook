@@ -1,6 +1,10 @@
 'use strict';
+
+require('dotenv').load();
+console.log('loaded dotenv');
+
 // Set default node environment to development
-var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || 'development';
 
 //grab packages
 var express = require('express');
@@ -12,44 +16,44 @@ var morgan = require('morgan');
 var app = express();
 
 //Configuration
-var config = require ('./config/environment/development');
+//var config = require ('./config/environment/development');
 
 //Routing
-var doctorRouter = require('./routes/doctorRouting');
+/*var doctorRouter = require('./routes/doctorRouting');*/
+var userRouter = require('./routes/userRouting');
 var patientRouter = require('./routes/patientRouting');
 var dataRouter = require('./routes/dataRouting');
-var userRouter = require('./routes/userRouting');
-
-//Database
-mongoose.connect(config.db_uri);
-
-//Authentication Configuration
-//app.set('superSecret', config.secret); 
-
-//TODO: Use configuration
-var port = process.env.PORT || 3000; 
 
 //Middleware
 
 //CORS
-app.use(function (req, res, next) {
+/*app.use(function (req, res, next) {
    res.setHeader('Access-Control-Allow-Origin', '*');
    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
    res.setHeader('Access-Control-Allow-Credentials', true);
    next();
-});
+});*/
 
 app.use(express.static('medbook-front-end'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-app.use('/', doctorRouter);
+/*app.use('/', doctorRouter);*/
+app.use('/', userRouter);
 app.use('/', patientRouter);
 app.use('/data', dataRouter);
-app.use('/', userRouter);
 
 //Start Server
+
+//Database
+mongoose.connect(process.env.DB_URI);
+console.log('mongoose URI' + process.env.DB_URI);
+
+//Port
+var port = process.env.PORT || 8080; 
+console.log('Port:' + process.env.PORT);
+
 app.listen(port);
 console.log('Medbook API listening on port ' + port);

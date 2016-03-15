@@ -4,11 +4,13 @@ var Model = require('./../models/userModel');
 var patient = require('./../controllers/patientController'); 
 var doctor = require('./../controllers/doctorController'); 
 var Logger = require('./../controllers/errorController');
+var utils = require('./../controllers/utilsController');
 
 var jwt = require('jsonwebtoken');
-var config = require ('./../config/environment/development');
+//var config = require ('./../config/environment/development');
 
 function Authenticate(req, res){
+	console.log("Inside userController Authenticate");
 	Model.findOne({
     	email: req.body.email
   	}, function(err, user) {
@@ -24,20 +26,81 @@ function Authenticate(req, res){
 	        	res.json({ success: false, message: 'Authentication failed. Wrong password.' });
 	      	} 
 	      	else {
-		      	var token = jwt.sign(user, config.secret, {
-		          expiresInMinutes: 1440 // expires in 24 hours
+		      	var token = jwt.sign(user, process.env.JWT_SECRET, {
+		          expiresIn: 3600 // seconds. expires in 1 hour
 		        });
 
-		        // return the information including token as JSON
-	    	    res.json({
-	        	  success: true,
-	          	  message: 'Enjoy your token!',
-	              token: token
-	        	});
+		      	//Token is correct, now get entity ID (ie: if patient, patientId; if doctor, doctorId)
+		      	var entId;
+
+		      	if (user.isPatient){
+		      			patient.FindByUserId(user._id, function(result){
+			      		console.log('Got Patient EntityId: ' + result._id);
+			      		entId = result._id;
+
+			      		console.log('entId: ' + entId);
+			      		 // return the information including token as JSON and EntityId 
+			    	    res.json({
+			        	  success: true,
+			          	  message: 'Save your token!',
+			              token: token,
+			              usrId: user._id,
+			              entityId: entId
+			        	});
+			      	});
+		      	}
+		      	else{
+		      		doctor.FindByUserId(user._id, function(result){
+		      		console.log('Got Doctor EntityId: ' + result._id);
+		      		entId = result._id;
+
+		      		console.log('entId: ' + entId);
+		      		 // return the information including token as JSON and EntityId 
+		    	    res.json({
+		        	  success: true,
+		          	  message: 'Save your token!',
+		              token: token,
+		              usrId: user._id,
+		              entityId: entId
+		        	});
+		      	});
+		      	}
+
 			}
 		}
 	}
 )}
+
+function ValidateToken(req, res, next){
+  console.log('Validating token');
+
+  // check header or url parameters or post parameters for token
+  var token = req.body.token || req.query.token || req.headers['x-access-token'];
+
+  // decode token
+  if (token) {
+    // verifies secret and checks exp
+    jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {      
+      if (err) {
+        return res.json({ success: false, message: 'Failed to authenticate token.' });    
+      } else {
+        // if everything is good, save to request for use in other routes
+        //req.decoded = decoded;    
+        console.log('Token verified');
+        next();
+      }
+    });
+
+  } else {
+    // if there is no token
+    // return an error
+    console.log('No token');
+    return res.status(403).send({ 
+        success: false, 
+        message: 'No token provided.' 
+    });
+  }
+}
 
 function GetAll(req, res){
 	console.log('userController.GetAll');
@@ -60,23 +123,17 @@ function GetAll(req, res){
 */
 function New(req, res){
 	console.log('userController.New');
+	console.log(req.body.name);
 
-/*	var usr = new Model();
+	var usr = new Model();
 	usr.name = req.body.name;
 	usr.lastName =  req.body.lastName;
 	usr.email =  req.body.email;
 	usr.password = req.body.password;
 	usr.isPatient = req.body.isPatient;
-	usr.isAdmin = req.body.isAdmin;*/
+	usr.isAdmin = req.body.isAdmin;
+	usr.setPassword();
 
-	var usr = new Model();
-	usr.name = 'Paola';
-	usr.lastName =  'Rodriguez';
-	usr.email =  'pao.rodriguez@gmail.com';
-	usr.password = 'paolita';
-	usr.isAdmin = true;
-	usr.isPatient = true;
-  	  	
 	usr.save()
 	.then(function(usr){
 		if (usr.isPatient){
@@ -88,8 +145,12 @@ function New(req, res){
 		return usr;
 	})
 	.then(function(usr){
-		console.log('segunda promesa');
-		console.log(usr);
+		console.log('usr created: ' + usr);
+		var emailBody = '<p>' + usr.name + ', you have just created an account in medBook</p>';
+		emailBody += '<p><b>Visit us now!</b></p>';
+		emailBody += '<a href="http://localhost:3000/#/signin">Medbook</a>';
+
+		utils.SendEmail(usr.email, "Welcome to MedBook", emailBody);
 		res.send(usr);
 	})
 	.catch(function(err){
@@ -122,10 +183,11 @@ function Delete(req, res){
 }*/
 
 module.exports = {
+	SignUp:New,
 	Authenticate: Authenticate,
-	GetAll:GetAll, 
+	ValidateToken: ValidateToken,
+	GetAll:GetAll
 	////GetProfile:GetOne, 
-	SignUp:New
 	//UpdateProfile: Update,
 	//Remove: Delete
 }

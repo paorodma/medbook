@@ -8,7 +8,18 @@ img {
 	height:40px;
 }
 
-.header-content .signin {
-	color:white;	
-	padding-top: 20px; 
+.header-content .headerMenu {
+	padding-top: 10px; 
+	float:right;
+	margin-right: -200px;
+}
+
+.header-content a{
+	font-size: 18px;
+	color:white;
+	padding-right: 10px;	
+}
+
+.mainScreen {
+	background-color: #E7E9EC;
 }

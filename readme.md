@@ -1,7 +1,8 @@
 To run this project:
  1. Open cmd -> mongod
- 2. Open cmd in root folder -> node medbook-api/server
- 3. Open browser to localhost:8080
+ 2. Open cmd in root folder (cd C:\Users\Paola\OneDrive\Dev\Brainstation\Bootcamp\dev\Project)
+ 3. Enter command nodemon medbook-api/server.js
+ 4. Open browser to localhost:3000
 
  This project is added in github @ https://github.com/paorodma/medbook
 

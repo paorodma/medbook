@@ -1,3 +1,45 @@
-.sign-up{
-	background-color: red;
+.error{
+	color: red;
+	font-size: 20px;
+	margin-top: 10px;
+}
+
+.sign-up h2 {
+	margin-bottom: 30px;
+	font-weight: bold;
+}
+
+.sign-up label {
+	font-size: 18px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color:#F78008;
+}
+
+.sign-up input {
+	font-size: 20px;
+	color:#0A2D53;
+	margin-bottom: 15px;
+}
+
+.sign-up input[type="text"], .sign-up input[type="password"]{
+	width:400px;
+	height:40px;
+}
+
+.sign-up .buttons {
+	margin-top: 20px;	
+	margin-bottom: 20px;
+	float:none;	
+	font-size: 18px;
+}
+
+.sign-up button{
+	margin-right: 20px;
+}
+
+.sign-up .radioOption{
+	font-size: 20px;
+	color:#0A2D53;
+	margin-bottom: 15px;
 }

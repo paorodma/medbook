@@ -1,8 +1,10 @@
 <div class="row header-content">
-	<div class="col-sm-6">
-		<img src="./img/med1.png" alt="Logo">
+	<div class="col-sm-6 col-md-3">
+		<img src="./img/med1.png" alt="Logo" ui-sref="home">
 	</div>
-	<div class="col-sm-2 col-sm-offset-4">
-       	<a class="signin" href="">Sign In</a>
-	</div>
+	<div class="col-sm-2 col-md-4 col-md-offset-5 headerMenu">
+       	<a id='siginInOption' ui-sref="sign-in" ng-hide="headerVm.loggedIn">Sign In</a>
+       	<a id='siginUpOption' ui-sref="sign-up" ng-hide="headerVm.loggedIn">Sign Up</a>
+       	<a id='siginOutOption' ui-sref="sign-out" ng-show="headerVm.loggedIn">Sign Out</a>
+    </div>
 </div>

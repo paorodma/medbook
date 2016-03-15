@@ -1,3 +1,48 @@
-.sign-in{
-	background-color: red;
+.error{
+	color: red;
+	font-size: 16px;
+	margin-top: 10px;
+}
+
+.sign-in h2 {
+	margin-bottom: 30px;
+	font-weight: bold;
+}
+
+.sign-in label {
+	font-size: 18px;
+	padding-right: 10px;
+	margin-bottom: 10px;
+	color:#F78008;
+}
+
+.sign-in input {
+	font-size: 18px;
+	color:#0A2D53;
+}
+
+.sign-in .firstCol{
+	float:right;
+}
+
+.sign-in .buttons {
+	margin-top: 20px;	
+	margin-bottom: 20px;
+	float:none;	
+	font-size: 18px;
+}
+
+.sign-in button{
+	margin-right: 10px;
+}
+
+.linkMessage {
+	font-weight: bold;
+	font-size: 16px;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.sign-in a{
+	font-size: 16px;
 }

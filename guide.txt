@@ -1,20 +1,30 @@
-Para el proyecto
-1 - Modelar los datos en JSON de lo que va a devolver el API
-2 - API
-	Get - Para traer todos
-	POST - agregar uno 
-	PUT - modificar
-	DELETE - borrar 
-3 - Front end
-4 - Back end
+Notes for Presentation
+ - No scaffolding
+ - This is Mean Stack
+ - Mongo service to have mongod running always
+ - Postman Tests
+ - Security with JWT
+ - Nodemailer to send email
+ - Back end: Restful API
+ - Front end: Angular, HTML5, CSS
+ - Environment file for port and DB connection
+ - Token saved in browser to send to UI
 
-Notes
- - ui-router: 
- - css por página
+ Pending
+  - form validation 
  - localize: 
- - security: 
- - graficos: http://jtblin.github.io/angular-chart.js/
- - usar rem en vez de px
+  - usar rem en vez de px
  - validación de datos
  - testing con Karma
  - node commands
+ - 
+ 
+
+Improvements
+ - promises: Not implemented since the project is not using ES6 
+ - use passport to validate 
+    npm install passport --save
+	npm install passport-local --save
+ - use express jwt
+ 	node install express-jwt --save
+ - Incluir graficos para analisis de datos: http://jtblin.github.io/angular-chart.js/

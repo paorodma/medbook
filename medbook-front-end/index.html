@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">    
 </head>
+
 <body>
 	<div class="container">
 		<div class="row">
@@ -12,7 +13,7 @@
 				<header></header>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row mainScreen">
 			<div ui-view></div>
 		</div>
 		<div class="row">
@@ -44,13 +45,16 @@
 	<!--Directives-->
     <script src="common/directives/header/header.directive.js"></script>
 	<script src="common/directives/footer/footer.directive.js"></script>
-	<script src="sign-in/sign-in.directive.js"></script>
+
+	<!--Services-->
+	<script src="services/appService.js"></script>
+	<script src="services/patientService.js"></script>
 
 	<!--Controllers-->
 	<script src="home/home.controller.js"></script>
-	<!--script src="sign-in/sign-in.controller.js"></script-->
+	<script src="sign-in/sign-in.controller.js"></script>
 	<script src="sign-up/sign-up.controller.js"></script>
+	<script src="sign-out/sign-out.controller.js"></script>
 	<script src="patients/appointments/appointments.controller.js"></script>
-
 </body>
 </html>

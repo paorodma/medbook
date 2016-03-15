@@ -4,14 +4,14 @@ angular
   .service('dataService', dataService);
 
 //TODO: Use config file
-var apiServer = "http://localhost:8080/";
+var dataApiServer = "http://localhost:3000/data";
 
 function dataService($http){
   this.getMedicalSpecialties = function(){
     var specialty = {};
     var specialties = [];
     
-    $http.get(apiServer + 'medicalSpecialties').then(function(response){
+    $http.get(dataApiServer + 'medicalSpecialties').then(function(response){
       
       for (let i = 0; i < response.data.length; i++) {
         specialty = response.data[i];

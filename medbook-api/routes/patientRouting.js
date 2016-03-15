@@ -1,37 +1,50 @@
 'use strict';
-var router = require('express').Router();
+var patientRouter = require('express').Router();
+
+var user = require('./../controllers/userController');
 var patients = require('./../controllers/patientController');
 var Logger = require('./../controllers/ErrorController');
 
-router.use(function(req, res, next){
+patientRouter.use(function(req, res, next){
 	Logger.log(req, "D", "patientRouting.js");
 	next();
 })
 
-router.route('/patients')
+//Unprotected routes
+
+patientRouter.route('/patients')
+ .post(function(req, res){
+ 	patients.SignUp(req, res);
+ })
+
+//Protected routes
+
+//Middleware to check token
+patientRouter.use(function(req, res, next) {
+	console.log('Calling ValidateToken');
+	user.ValidateToken(req, res, next);
+});
+
+patientRouter.route('/patients')
   .get(function(req, res){
   	console.log('get all patients - should only be accessed through admin rights');
     patients.GetAll(req, res);
   });
 
-router.route('/patients/:patient_id')
+patientRouter.route('/patients/:patient_id')
  .get(function(req, res){
+ 	console.log('patientRouter calling GetProfile');
  	patients.GetProfile(req, res);
  })
 
-router.route('/patients')
- .post(function(req, res){
- 	patients.SignUp(req, res);
- })
-
-router.route('/patients/:patient_id')
+patientRouter.route('/patients/:patient_id')
  .delete(function(req, res){
  	patients.Remove(req, res);
  })
 
-router.route('/patients/:patient_id')
+patientRouter.route('/patients/:patient_id')
  .put(function(req, res){
  	patients.UpdateProfile(req, res);
  })
 
-module.exports = router;
+module.exports = patientRouter;
