@@ -37,6 +37,24 @@ patientRouter.route('/patients/:patient_id')
  	patients.GetProfile(req, res);
  })
 
+ patientRouter.route('/patients/:patient_id/personalInfo')
+ .get(function(req, res){
+ 	console.log('patientRouter calling GetPersonalInformation');
+ 	patients.GetPersonalInformation(req, res);
+ })
+
+ patientRouter.route('/patients/:patient_id/doctors')
+ .get(function(req, res){
+ 	console.log('patientRouter calling GetPatientDoctors');
+ 	patients.GetPatientDoctors(req, res);
+ })
+
+ patientRouter.route('/patients/:patient_id/appointments')
+ .get(function(req, res){
+ 	console.log('patientRouter calling GetPatientAppointments');
+ 	patients.GetPatientAppointments(req, res);
+ })
+
 patientRouter.route('/patients/:patient_id')
  .delete(function(req, res){
  	patients.Remove(req, res);

@@ -1,60 +1,95 @@
 'use strict';
 var Model = require('./../models/doctorModel');
 var Logger = require('./../controllers/errorController');
+var logSource = "doctorController";
 
 function GetAll(req, res){
-	console.log('doctorController.GetAll');
+	Logger.log('doctorController.GetAll', 'I', logSource);
 	Model.find().then(function(results){
 		res.send(results);
 	});
 }
 
 function FindByUserId(userId, callback){
-	console.log("Find Doctor by userId");
+	Logger.log("Find Doctor by userId", 'I', logSource);
 	Model.findOne({'user': userId })
 		.then(function(result){
-			console.log(result);
+			Logger.log(result);
 			callback(result);
 		})
 		.catch(function(err){
-			Logger.log(err, "E", "doctorController.FindByUserId");
+			Logger.log(err, 'E', logSource + ".FindByUserId");
 			callback(err);
 		})
 }
 
 function GetOne(req, res){
-	console.log('doctorController.GetOne: ' + req.params.doctor_id);
+	Logger.log('doctorController.GetOne: ' + req.params.doctor_id, 'I', logSource);
 	Model.findById(req.params.doctor_id)
 		.then(function(results){
+			Logger.log(results, 'D', logSource + '.GetOne')
 			res.send(results);
 		})
 		.catch(function(err){
-			Logger.log(err, "E", "doctorController.GetOne");
+			Logger.log(err, 'E', logSource + ".GetOne");
+			res.send(err);
+		});
+}
+
+function GetDoctorAppointments(req, res){
+	Logger.log('doctorController.GetDoctorAppointments. Doctor: ' + req.params.doctor_id, 'I', logSource);
+	Model.findById(req.params.doctor_id)
+		.then(function(results){
+			Logger.log(results.appointments, 'D', logSource + '.GetOne')
+			
+			 res.json({
+			        	  success: true,
+			          	  appointments: results.appointments
+			        	});
+		})
+		.catch(function(err){
+			Logger.log(err, 'E', logSource + ".GetOne");
+			res.send(err);
+		});
+}
+
+function GetDoctorPatients(req, res){
+	Logger.log('doctorController.GetDoctorPatients. Doctor: ' + req.params.doctor_id, 'I', logSource);
+	Model.findById(req.params.doctor_id)
+		.then(function(results){
+			Logger.log(results.patients, 'D', logSource + '.GetOne')
+			res.json({
+			        	  success: true,
+			          	  patients: results.patients
+			        	});
+		})
+		.catch(function(err){
+			Logger.log(err, 'E', logSource + ".GetOne");
 			res.send(err);
 		});
 }
 
 function New(userId){
-	console.log('doctorController.New');
+	Logger.log('doctorController.New');
 
 	var doctor = new Model();
 	doctor.user = userId;
 
 	doctor.save()
 	.then(function(doctor){
-		Logger.log('Doctor created', "D", "doctorController.New");
+		Logger.log('Doctor created', 'D', logSource + ".New");
 	})
 	.catch(function(err){
-		Logger.log(err, "E", "doctorController.New");
+		Logger.log(err, 'E', logSource + ".New");
 		throw(err);
 	})
 }
 
 function Update(req, res){
-	console.log('doctorController.Update: ' + req.params.doctor_id);
+	Logger.log('doctorController.Update: ' + req.params.doctor_id, 'I', logSource);
 
 	Model.findByIdAndUpdate(req.params.doctor_id, req.body).then(function(results) {
-	  console.log('Updated doctor');
+	  Logger.log('Updated doctor', 'I', logSource);
 
 	/*
 	doctor.specialty = req.body.specialty;
@@ -64,17 +99,17 @@ function Update(req, res){
   	*/
 	  res.send(results);
 	}).catch(function(err){
-		console.log(err);
+		Logger.log(err, 'E', logSource);
 		res.send(err);
 	});
 }
 
 function Delete(req, res){
-	console.log('doctorController.Delete: ' + req.params.doctor_id);
+	Logger.log('doctorController.Delete: ' + req.params.doctor_id, 'I', logSource);
 	Model.findByIdAndRemove(req.params.doctor_id).then(function(results) {
 	  res.send(results);
 	}).catch(function(err){
-		console.log(err);
+		Logger.log(err, 'E', logSource);
 		res.send(err);
 	});
 }
@@ -85,5 +120,8 @@ module.exports = {
 	GetProfile:GetOne, 
 	New:New,
 	UpdateProfile: Update,
-	Remove: Delete
+	Remove: Delete,
+
+	GetDoctorAppointments:GetDoctorAppointments,
+	GetDoctorPatients:GetDoctorPatients
 }

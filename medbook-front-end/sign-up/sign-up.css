@@ -1,45 +1,46 @@
 .error{
 	color: red;
-	font-size: 20px;
-	margin-top: 10px;
+	font-size: 1.6rem;
+	margin-top: 1.1rem;
 }
 
 .sign-up h2 {
-	margin-bottom: 30px;
+	margin-bottom: 4rem;
 	font-weight: bold;
 }
 
 .sign-up label {
-	font-size: 18px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	font-size: 2rem;
+	margin-top: 1.4rem;
+	margin-bottom: 1.4rem;
 	color:#F78008;
 }
 
 .sign-up input {
-	font-size: 20px;
+	font-size: 1.8rem;
 	color:#0A2D53;
-	margin-bottom: 15px;
+	margin-bottom: 1.8rem;
 }
 
 .sign-up input[type="text"], .sign-up input[type="password"]{
-	width:400px;
-	height:40px;
+	width:40rem;
+	height:4.5rem;
 }
 
 .sign-up .buttons {
-	margin-top: 20px;	
-	margin-bottom: 20px;
+	margin-top: 1.8rem;	
+	margin-bottom: 2.8rem;
 	float:none;	
-	font-size: 18px;
+	font-size: 2rem;
 }
 
 .sign-up button{
-	margin-right: 20px;
+	margin-right: 2rem;
+	padding: 0.5rem, 1rem;
 }
 
 .sign-up .radioOption{
-	font-size: 20px;
+	font-size: 2rem;
 	color:#0A2D53;
-	margin-bottom: 15px;
+	margin-bottom: 1.5rem;
 }

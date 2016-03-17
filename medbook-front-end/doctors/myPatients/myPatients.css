@@ -1,0 +1,6 @@
+.myPatients.row{
+	background-image: url("./../../img/patients.jpg");
+	background-size: cover;
+	height:500px;
+	opacity: 0.4;
+}

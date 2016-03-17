@@ -1,0 +1,46 @@
+.myDoctors.row{
+	background-image: url("./../../img/doctors.png");
+	background-size: cover;
+	height:80rem;
+	padding:10%;
+}
+
+.error{
+	color: red;
+	font-size: 1.6rem;
+	margin-top: 1.1rem;
+}
+
+.myDoctors h2 {
+	margin-bottom: 4rem;
+	font-weight: bold;
+	color:#0A2D53;
+}
+
+.myDoctors label {
+	font-size: 2rem;
+	padding-right: 1rem;
+	margin-bottom: 1.4rem;
+	color:#F78008;
+}
+
+.myDoctors input {
+	font-size: 1.8rem;
+	color:#0A2D53;
+}
+
+.myDoctors .firstCol{
+	float:right;
+}
+
+.myDoctors .buttons {
+	margin-top: 1.8rem;	
+	margin-bottom: 2.8rem;
+	float:none;	
+	font-size: 1.8rem;
+}
+
+.myDoctors button{
+	margin-right: 2rem;
+	padding: 0.5rem, 1rem;
+}

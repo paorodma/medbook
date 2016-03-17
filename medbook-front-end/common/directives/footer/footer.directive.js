@@ -14,5 +14,5 @@ function footer(){
 }
 
 function footerController(){
-	console.log("Inside footerController");
+	//console.log("Inside footerController");
 }

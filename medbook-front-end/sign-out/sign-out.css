@@ -1,4 +1,10 @@
 .sign-out h2 {
-	margin-bottom: 30px;
+	margin-bottom: 4rem;
 	font-weight: bold;
+	color:#00A1A1;
+}
+
+.sign-out img{
+	width:100%;
+	margin-bottom: 3rem;
 }

@@ -1,23 +1,23 @@
 .error{
 	color: red;
-	font-size: 16px;
-	margin-top: 10px;
+	font-size: 1.6rem;
+	margin-top: 1.1rem;
 }
 
 .sign-in h2 {
-	margin-bottom: 30px;
+	margin-bottom: 4rem;
 	font-weight: bold;
 }
 
 .sign-in label {
-	font-size: 18px;
-	padding-right: 10px;
-	margin-bottom: 10px;
+	font-size: 2rem;
+	padding-right: 1rem;
+	margin-bottom: 1.4rem;
 	color:#F78008;
 }
 
 .sign-in input {
-	font-size: 18px;
+	font-size: 1.8rem;
 	color:#0A2D53;
 }
 
@@ -26,23 +26,24 @@
 }
 
 .sign-in .buttons {
-	margin-top: 20px;	
-	margin-bottom: 20px;
+	margin-top: 1.8rem;	
+	margin-bottom: 2.8rem;
 	float:none;	
-	font-size: 18px;
+	font-size: 1.8rem;
 }
 
 .sign-in button{
-	margin-right: 10px;
+	margin-right: 2rem;
+	padding: 0.5rem, 1rem;
 }
 
 .linkMessage {
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 1.5rem;
 	display: inline-block;
-	margin-right: 10px;
+	margin-right: 2rem;
 }
 
 .sign-in a{
-	font-size: 16px;
+	font-size: 1.5rem;
 }

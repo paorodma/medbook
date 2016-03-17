@@ -1,0 +1,6 @@
+ReferenceError: results is not defined [@ patientController.GetPersonalInformation.Patient - ERROR]
+TypeError: Cannot read property 'name' of null [@ patientController.GetPersonalInformation.User - ERROR]
+TypeError: Cannot read property 'name' of null [@ patientController.GetPersonalInformation.User - ERROR]
+TypeError: Cannot read property 'name' of null [@ patientController.GetPersonalInformation.User - ERROR]
+TypeError: Cannot read property 'name' of null [@ patientController.GetPersonalInformation.User - ERROR]
+TypeError: Cannot read property 'name' of null [@ patientController.GetPersonalInformation.User - ERROR]

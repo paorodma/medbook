@@ -5,22 +5,23 @@ Notes for Presentation
  - Postman Tests
  - Security with JWT
  - Nodemailer to send email
- - Back end: Restful API
+ - Back end: Restful API, locale folders for data in json format
  - Front end: Angular, HTML5, CSS
- - Environment file for port and DB connection
- - Token saved in browser to send to UI
+ - Environment file for port, DB connection, loggingLevel, etc
+ - Logging files with custom library, colors to write to console
+ - Token saved in browser to send to UI through localStorage
+ - application is in github
+ - no px, rem 
+ - angular -translate
 
  Pending
+  - subir imagen
+  - handlebars para poner todo en ingles o espanol
   - form validation 
- - localize: 
-  - usar rem en vez de px
- - validación de datos
- - testing con Karma
- - node commands
- - 
+  - testing con Karma
  
-
 Improvements
+ - hashing
  - promises: Not implemented since the project is not using ES6 
  - use passport to validate 
     npm install passport --save
@@ -28,3 +29,6 @@ Improvements
  - use express jwt
  	node install express-jwt --save
  - Incluir graficos para analisis de datos: http://jtblin.github.io/angular-chart.js/
+ - Read localization from browser to determine language
+  - hosting on heroku
+ - node commands to build and upload to heroku

@@ -7,5 +7,5 @@ angular
 	.controller('homeCtrl', homeCtrl);
 
 	function homeCtrl($scope) {
-		console.log('Inside homeCtrl');
+		//console.log('Inside homeCtrl');
 	}

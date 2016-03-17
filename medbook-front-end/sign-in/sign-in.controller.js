@@ -18,16 +18,18 @@ angular
         localStorage.setItem('securityToken', result.data.token);
         localStorage.setItem('entityID', result.data.entityId);
 
-        /*console.log('Storage userID: ' + localStorage.getItem('userID'));
-        console.log('Storage entityID: ' + localStorage.getItem('entityID'));
-        console.log('Storage token: ' + localStorage.getItem('securityToken'));*/
-
         signInVM.errorMessage="";
-        $state.go('patient-load-appointments');  
+        if (result.data.isPatient)
+        {
+          $state.go('patient-overview');    
+        }
+        else
+        {
+          $state.go('doctor-overview');     
+        }
       }
       else
       {
-        
         signInVM.errorMessage='Invalid user or password';
         console.log(result.data.message);
       }

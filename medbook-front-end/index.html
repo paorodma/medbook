@@ -9,17 +9,13 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
-				<header></header>
-			</div>
+			<header></header>
 		</div>
 		<div class="row mainScreen">
 			<div ui-view></div>
 		</div>
 		<div class="row">
-			<div class="col-sm-12">
-				<footer></footer>
-			</div>
+			<footer></footer>
 		</div>
 	</div>
 	
@@ -40,21 +36,33 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.17/angular-ui-router.min.js"></script>
 
 	<script src="app.js"></script>
+	<!--script src="common/languageResources/angular-translate.js"></script-->
+	<!--script src="index.translate.js"></script-->
 	<script src="index.routing.js"></script>
-
+	
 	<!--Directives-->
     <script src="common/directives/header/header.directive.js"></script>
 	<script src="common/directives/footer/footer.directive.js"></script>
+	<script src="patients/appointments/appointments.directive.js"></script>
+	<script src="patients/personalInformation/personalInfo.directive.js"></script>
+	<script src="patients/medicalInformation/medicalInfo.directive.js"></script>
+	<script src="patients/myDoctors/myDoctors.directive.js"></script>
+	<script src="doctors/doctorInformation/doctorInfo.directive.js"></script>
+	<script src="doctors/assignedAppointments/assignedAppointments.directive.js"></script>
+	<script src="doctors/myPatients/myPatients.directive.js"></script>
 
 	<!--Services-->
 	<script src="services/appService.js"></script>
 	<script src="services/patientService.js"></script>
+	<script src="services/doctorService.js"></script>
+	<script src="services/dataService.js"></script>
 
 	<!--Controllers-->
 	<script src="home/home.controller.js"></script>
 	<script src="sign-in/sign-in.controller.js"></script>
 	<script src="sign-up/sign-up.controller.js"></script>
 	<script src="sign-out/sign-out.controller.js"></script>
-	<script src="patients/appointments/appointments.controller.js"></script>
+	<script src="patients/overview/overview.controller.js"></script>
+	<script src="doctors/overview/overview.controller.js"></script>
 </body>
 </html>

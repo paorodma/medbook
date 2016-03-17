@@ -1,23 +1,37 @@
 .header-content{
 	background-color: #6195ED;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-bottom: 1.5rem;
+	padding-top: 1rem;
 }
 
-img {
-	height:40px;
+.header-content img {
+	height:5rem;
+	margin-top: 1rem;
+}
+
+.languageMenu {
+	padding-left: 5rem;
+}
+
+.languageMenu img{
+	height:2rem;	
+	margin-top: 1rem;
+	padding-left: 1rem;
+}
+
+.menuOptions {
+	float: right;
 }
 
 .header-content .headerMenu {
-	padding-top: 10px; 
-	float:right;
-	margin-right: -200px;
+	padding-top: 0.5rem; 
+	padding-left: 20rem;
 }
 
 .header-content a{
-	font-size: 18px;
+	font-size: 1.8rem;
 	color:white;
-	padding-right: 10px;	
+	padding-right: 1.3rem;	
 }
 
 .mainScreen {

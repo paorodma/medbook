@@ -14,5 +14,5 @@ function header(){
 }
 
 function headerController($scope){
-	console.log("Inside headerController");
+	//console.log("Inside headerController");
 }

@@ -12,7 +12,7 @@ var transporter = mail.createTransport('smtps://pao.rodriguez@gmail.com:$29P40R0
 
 function SendEmail(to, subject, htmlText){
 	// setup e-mail data with unicode symbols
-	console.log('Sending email');
+	Logger.log('Sending email');
 	var mailOptions = {
 	    from: emailfrom,
 	    to: to, 
@@ -23,9 +23,9 @@ function SendEmail(to, subject, htmlText){
 
 	transporter.sendMail(mailOptions, function(error, info){
 	    if(error){
-	        return console.log(error);
+	        return Logger.log(error);
 	    }
-	    console.log('Message sent: ' + info.response);
+	    Logger.log('Message sent: ' + info.response);
 	    Logger.log('Message sent to : ' + mailOptions.to + ' ' + info.response);
 	});
 

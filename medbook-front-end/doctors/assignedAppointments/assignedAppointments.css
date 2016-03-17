@@ -1,0 +1,10 @@
+.glyphicon{
+	font-size:10rem;
+}
+
+.assignedAppointments{
+	background: url("./../../img/agenda.png") no-repeat left top;
+	background-size: cover;
+	height:500px;
+	margin-left: 4rem;
+}

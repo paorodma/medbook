@@ -1,0 +1,58 @@
+<link rel="stylesheet" type="text/css" href="patients/personalInformation/personalInfo.css" >
+<div class="col-md-12">
+    <div class="row personal-info">
+        <div class="col">
+            <div class="row ">
+                <div class="col-md-12 col-sm-12">
+                    <h2>Personal Information</h2>
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-md-offset-3 col-md-2 col-sm-10 col-sm-offset-1">
+                    <div class="firstCol"><label>Name</label><span class="fieldRequired">*<span></div>
+                </div>
+                <div class="col-md-2 col-sm-10">
+                    <div><input type="text" ng-model="personalInfoVM.name"></div>
+                </div>         
+            </div>
+            <div class="row">
+                <div class="col-md-offset-3 col-md-2 col-sm-10 col-sm-offset-1">
+                    <div class="firstCol"><label>Last Name</label><span class="fieldRequired">*<span></div>
+                </div>
+                <div class="col-md-2 col-sm-10">
+                    <div><input type="text" ng-model="personalInfoVM.lastName"></input></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-3 col-md-2 col-sm-10 col-sm-offset-1">
+                    <div class="firstCol"><label>Birth Date</label><span class="fieldRequired">*<span></div>
+                </div>
+                <div class="col-md-2 col-sm-10">
+                    <div><input type="date" ng-model="personalInfoVM.birthDate"></input></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-3 col-md-2 col-sm-10 col-sm-offset-1">
+                    <div class="firstCol"><label>Gender</label></div>
+                </div>
+                <div class="col-md-4 col-sm-10">
+                    <div class="radioOption">
+                        <input type="radio" ng-model="personalInfoVM.gender" value="M"> Male
+                        <input type="radio" ng-model="personalInfoVM.gender" value="F"> Female
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-offset-5 col-md-4 col-sm-10 col-sm-offset-1">
+                    <div><p class="error" ng-model="personalInfoVM.errorMessage">{{ personalInfoVM.errorMessage }}</p></div>
+                </div>
+            </div>
+            <div class="row buttons">
+                <div class="col-md-offset-5 col-md-4 col-sm-10 col-sm-offset-1">
+                    <button type="button" ng-click="personalInfoVM.personalInfo()">Update</button>
+                    <button type="button" ui-sref="home">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

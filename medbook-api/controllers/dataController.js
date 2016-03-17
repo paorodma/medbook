@@ -7,7 +7,7 @@ function ReadFile(fileName, locale, res){
 	var l = locale || "en-US"
 	var path = "./medbook-api/data/" + l + "/" + fileName;
 
-	Logger.log("Reading file " + path, "D", "dataController");
+	Logger.log("Reading file " + path, "I", "dataController");
 
 	fs.readFile(path, function(err, data){
 		if (err){

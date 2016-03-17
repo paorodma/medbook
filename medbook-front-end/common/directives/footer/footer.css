@@ -1,4 +1,15 @@
 .footer-content{
 	background-color: #6e6e6e;
-	padding-top: 50px; 
+	color:white;
+	padding-top: 3rem;
+	padding-bottom: 2rem; 
+}
+
+.footer-content hr{
+	margin-bottom: 0.5rem;
+}
+
+.footer-content p{
+	margin-left: 2rem;
+	font-size: 1.3rem;
 }

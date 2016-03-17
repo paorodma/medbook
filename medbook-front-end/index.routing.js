@@ -32,12 +32,23 @@
         controller: 'signOutCtrl',
         controllerAs: 'signOutVM'
       })
-      .state('patient-load-appointments', {
-        url: '/patients/appointments',
-        templateUrl: 'patients/appointments/appointments.view.html',
-        controller: 'appointmentsCtrl',
-        controllerAs: 'appointmentsVM'
+
+      //patients
+      .state('patient-overview', {
+        url: '/patients/overview',
+        templateUrl: 'patients/overview/overview.view.html',
+        controller: 'patientsOverviewCtrl',
+        controllerAs: 'pOverviewVM'
+      })
+
+      //doctors
+      .state('doctor-overview', {
+        url: '/doctors/overview',
+        templateUrl: 'doctors/overview/overview.view.html',
+        controller: 'doctorsOverviewCtrl',
+        controllerAs: 'dOverviewVM'
       });
+
 
     $urlRouterProvider.otherwise('/');
   }

@@ -1,19 +1,20 @@
 'use strict';
 var Model = require('./../models/patientModel');
+var User = require('./../models/patientModel');
 var Logger = require('./../controllers/errorController');
 
 function GetAll(req, res){
-	console.log('patientController.GetAll');
+	Logger.log('patientController.GetAll');
 	Model.find().then(function(results){
 		res.send(results);
 	});
 }
 
 function FindByUserId(userId, callback){
-	console.log("Find Patient by userId");
+	Logger.log("Find Patient by userId");
 	Model.findOne({'user': userId })
 		.then(function(result){
-			console.log(result);
+			Logger.log(result);
 			callback(result);
 		})
 		.catch(function(err){
@@ -23,7 +24,7 @@ function FindByUserId(userId, callback){
 }
 
 function GetOne(req, res){
-	console.log('patientController.GetOne: ' + req.params.patient_id);
+	Logger.log('patientController.GetOne: ' + req.params.patient_id);
 	Model.findById(req.params.patient_id)
 		.then(function(results){
 			res.send(results);
@@ -34,8 +35,32 @@ function GetOne(req, res){
 		});
 }
 
+function GetPatientDoctors(req, res){
+	Logger.log('patientController.GetPatientDoctors: ' + req.params.patient_id);
+	Model.findById(req.params.patient_id)
+		.then(function(results){
+			res.send(results.doctors);
+		})
+		.catch(function(err){
+			Logger.log(err, "E", "patientController.GetPatientDoctors");
+			res.send(err);
+		});
+}
+
+function GetPatientAppointments(req, res){
+	Logger.log('patientController.GetPatientAppointments: ' + req.params.patient_id);
+	Model.findById(req.params.patient_id)
+		.then(function(results){
+			res.send(results.appointments);
+		})
+		.catch(function(err){
+			Logger.log(err, "E", "patientController.GetPatientAppointments");
+			res.send(err);
+		});
+}
+
 function New(userId){
-	console.log('patientController.New');
+	Logger.log('patientController.New');
 
 	var patient = new Model();
 	patient.user = userId;
@@ -51,7 +76,7 @@ function New(userId){
 }
 
 function Update(req, res){
-	console.log('patientController.Update: ' + req.params.patient_id);
+	Logger.log('patientController.Update: ' + req.params.patient_id);
 
 	Model.findByIdAndUpdate(req.params.patient_id, req.body).then(function(results) {
 
@@ -67,22 +92,38 @@ function Update(req, res){
 	  	patient.labResults = [{}];
 
 	*/
-	  console.log('Updated patient');
+	  Logger.log('Updated patient');
 	  res.send(results);
 	}).catch(function(err){
-		console.log(err);
+		Logger.log(err);
 		res.send(err);
 	});
 }
 
 function Delete(req, res){
-	console.log('patientController.Delete: ' + req.params.patient_id);
+	Logger.log('patientController.Delete: ' + req.params.patient_id);
 	Model.findByIdAndRemove(req.params.patient_id).then(function(results) {
 	  res.send(results);
 	}).catch(function(err){
-		console.log(err);
+		Logger.log(err);
 		res.send(err);
 	});
+}
+
+function GetPersonalInformation(req, res){
+	/*
+	Logger.log('patientController.GetPersonalInformation: ' + req.params.patient_id);
+	Model.findOne({_id: req.params.patient_id}).populate('user').exec(
+		function (err, result) {
+			  if (err) {
+			  	res.send(err);console.log(err);
+			  }
+			  console.log(result);
+			  res.send(result);
+			  
+			})
+*/
+	GetOne(req,res);
 }
 
 module.exports = {
@@ -91,5 +132,10 @@ module.exports = {
 	GetProfile:GetOne, 
 	New:New,
 	UpdateProfile: Update,
-	Remove: Delete
+	Remove: Delete,
+
+	GetPersonalInformation: GetPersonalInformation
+	/*GetMedicalInformation: GetMedicalInformation,
+	GetDoctors: GetDoctors,
+	GetAppointments: GetAppointments*/
 }

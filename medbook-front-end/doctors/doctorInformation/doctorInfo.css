@@ -1,0 +1,5 @@
+.doctorInfo.row{
+	background-image: url("./../../img/doctor.png");
+	background-size: cover;
+	height:500px;
+}

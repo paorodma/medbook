@@ -1,0 +1,70 @@
+.personal-info{
+	background: url("./../../img/notes.png") no-repeat left top;
+	background-size: cover;
+	height:40rem;
+	padding:1rem;
+}
+
+.error{
+	color: red;
+	font-size: 1.6rem;
+	margin-top: 1.1rem;
+}
+
+.personal-info h2 {
+	margin-bottom: 4rem;
+	font-weight: bold;
+	color:#0A2D53;
+}
+
+.personal-info label {
+	font-size: 2rem;
+	padding-right: 1rem;
+	margin-bottom: 1.4rem;
+	color:#F78008;
+}
+
+.personal-info input {
+	font-size: 1.8rem;
+	color:#0A2D53;
+}
+
+.personal-info input [type=radio]{
+	margin-right: 1rem;
+}
+
+.personal-info .firstCol{
+	float:right;
+}
+
+.personal-info .buttons {
+	margin-top: 1.8rem;	
+	margin-bottom: 2.8rem;
+	float:none;	
+	font-size: 1.8rem;
+}
+
+.personal-info button{
+	margin-right: 2rem;
+	padding: 0.5rem, 1rem;
+}
+
+.linkMessage {
+	font-weight: bold;
+	font-size: 1.5rem;
+	display: inline-block;
+	margin-right: 2rem;
+}
+
+.personal-info a{
+	font-size: 1.5rem;
+}
+
+
+.personal-info .radioOption{
+	font-size: 2rem;
+	color:#0A2D53;
+	margin-bottom: 1.5rem;
+	margin-right: 2rem;
+	display: inline-block;
+}

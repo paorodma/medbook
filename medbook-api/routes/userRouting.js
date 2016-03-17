@@ -6,7 +6,7 @@ var Logger = require('./../controllers/ErrorController');
 
 //Middleware
 userRouter.use(function(req, res, next){
-	Logger.log(req, "D", "userRouting.js");
+	Logger.log('New request', 'D', 'userRouting.js');
 	next();
 })
 
@@ -16,7 +16,7 @@ userRouter.post('/signUp', function(req, res) {
 });
 
 userRouter.post('/authenticate', function(req, res) {
-	console.log('Authenticate');
+	Logger.log('Authenticate', 'D', 'userRouting.js');
 	user.Authenticate(req, res);
 });
 

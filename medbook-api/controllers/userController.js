@@ -10,7 +10,7 @@ var jwt = require('jsonwebtoken');
 //var config = require ('./../config/environment/development');
 
 function Authenticate(req, res){
-	console.log("Inside userController Authenticate");
+	Logger.log("Inside userController Authenticate");
 	Model.findOne({
     	email: req.body.email
   	}, function(err, user) {
@@ -35,32 +35,34 @@ function Authenticate(req, res){
 
 		      	if (user.isPatient){
 		      			patient.FindByUserId(user._id, function(result){
-			      		console.log('Got Patient EntityId: ' + result._id);
+			      		Logger.log('Got Patient EntityId: ' + result._id);
 			      		entId = result._id;
 
-			      		console.log('entId: ' + entId);
+			      		Logger.log('entId: ' + entId);
 			      		 // return the information including token as JSON and EntityId 
 			    	    res.json({
 			        	  success: true,
 			          	  message: 'Save your token!',
 			              token: token,
 			              usrId: user._id,
+			              isPatient: user.isPatient,
 			              entityId: entId
 			        	});
 			      	});
 		      	}
 		      	else{
 		      		doctor.FindByUserId(user._id, function(result){
-		      		console.log('Got Doctor EntityId: ' + result._id);
+		      		Logger.log('Got Doctor EntityId: ' + result._id);
 		      		entId = result._id;
 
-		      		console.log('entId: ' + entId);
+		      		Logger.log('entId: ' + entId);
 		      		 // return the information including token as JSON and EntityId 
 		    	    res.json({
 		        	  success: true,
 		          	  message: 'Save your token!',
 		              token: token,
 		              usrId: user._id,
+		              isPatient: user.isPatient,
 		              entityId: entId
 		        	});
 		      	});
@@ -72,21 +74,23 @@ function Authenticate(req, res){
 )}
 
 function ValidateToken(req, res, next){
-  console.log('Validating token');
+  Logger.log('Validating token');
 
   // check header or url parameters or post parameters for token
   var token = req.body.token || req.query.token || req.headers['x-access-token'];
 
   // decode token
   if (token) {
+  	Logger.log(token);
     // verifies secret and checks exp
     jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {      
       if (err) {
+      	Logger.log('Err:' + err);
         return res.json({ success: false, message: 'Failed to authenticate token.' });    
       } else {
         // if everything is good, save to request for use in other routes
         //req.decoded = decoded;    
-        console.log('Token verified');
+        Logger.log('Token verified');
         next();
       }
     });
@@ -94,7 +98,7 @@ function ValidateToken(req, res, next){
   } else {
     // if there is no token
     // return an error
-    console.log('No token');
+    Logger.log('No token');
     return res.status(403).send({ 
         success: false, 
         message: 'No token provided.' 
@@ -103,14 +107,14 @@ function ValidateToken(req, res, next){
 }
 
 function GetAll(req, res){
-	console.log('userController.GetAll');
+	Logger.log('userController.GetAll');
 	Model.find().then(function(results){
 		res.send(results);
 	});
 }
 
 /*function GetOne(req, res){
-	console.log('doctorController.GetOne: ' + req.params.doctor_id);
+	Logger.log('doctorController.GetOne: ' + req.params.doctor_id);
 	Model.findById(req.params.doctor_id)
 		.then(function(results){
 			res.send(results);
@@ -122,8 +126,8 @@ function GetAll(req, res){
 }
 */
 function New(req, res){
-	console.log('userController.New');
-	console.log(req.body.name);
+	Logger.log('userController.New');
+	Logger.log(req.body.name);
 
 	var usr = new Model();
 	usr.name = req.body.name;
@@ -145,7 +149,7 @@ function New(req, res){
 		return usr;
 	})
 	.then(function(usr){
-		console.log('usr created: ' + usr);
+		Logger.log('usr created: ' + usr);
 		var emailBody = '<p>' + usr.name + ', you have just created an account in medBook</p>';
 		emailBody += '<p><b>Visit us now!</b></p>';
 		emailBody += '<a href="http://localhost:3000/#/signin">Medbook</a>';
@@ -161,23 +165,23 @@ function New(req, res){
 
 /*
 function Update(req, res){
-	console.log('doctorController.Update: ' + req.params.doctor_id);
+	Logger.log('doctorController.Update: ' + req.params.doctor_id);
 
 	Model.findByIdAndUpdate(req.params.doctor_id, req.body).then(function(results) {
-	  console.log('Updated doctor');
+	  Logger.log('Updated doctor');
 	  res.send(results);
 	}).catch(function(err){
-		console.log(err);
+		Logger.log(err);
 		res.send(err);
 	});
 }
 
 function Delete(req, res){
-	console.log('doctorController.Delete: ' + req.params.doctor_id);
+	Logger.log('doctorController.Delete: ' + req.params.doctor_id);
 	Model.findByIdAndRemove(req.params.doctor_id).then(function(results) {
 	  res.send(results);
 	}).catch(function(err){
-		console.log(err);
+		Logger.log(err);
 		res.send(err);
 	});
 }*/

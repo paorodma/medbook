@@ -1,3 +1,50 @@
 .glyphicon{
-	font-size:24px;
+	font-size:10rem;
+}
+
+.appointments{
+	background: url("./../../img/agenda.png") no-repeat left top;
+	background-size: cover;
+	height:80rem;
+	padding:10%;
+}
+
+.error{
+	color: red;
+	font-size: 1.6rem;
+	margin-top: 1.1rem;
+}
+
+.appointments h2 {
+	margin-bottom: 4rem;
+	font-weight: bold;
+	color:#0A2D53;
+}
+
+.appointments label {
+	font-size: 2rem;
+	padding-right: 1rem;
+	margin-bottom: 1.4rem;
+	color:#F78008;
+}
+
+.appointments input {
+	font-size: 1.8rem;
+	color:#0A2D53;
+}
+
+.appointments .firstCol{
+	float:right;
+}
+
+.appointments .buttons {
+	margin-top: 1.8rem;	
+	margin-bottom: 2.8rem;
+	float:none;	
+	font-size: 1.8rem;
+}
+
+.appointments button{
+	margin-right: 2rem;
+	padding: 0.5rem, 1rem;
 }

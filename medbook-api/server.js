@@ -19,30 +19,30 @@ var app = express();
 //var config = require ('./config/environment/development');
 
 //Routing
-/*var doctorRouter = require('./routes/doctorRouting');*/
 var userRouter = require('./routes/userRouting');
 var patientRouter = require('./routes/patientRouting');
+var doctorRouter = require('./routes/doctorRouting');
 var dataRouter = require('./routes/dataRouting');
 
 //Middleware
 
 //CORS
-/*app.use(function (req, res, next) {
+app.use(function (req, res, next) {
    res.setHeader('Access-Control-Allow-Origin', '*');
    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
    res.setHeader('Access-Control-Allow-Credentials', true);
    next();
-});*/
+});
 
 app.use(express.static('medbook-front-end'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-/*app.use('/', doctorRouter);*/
 app.use('/', userRouter);
 app.use('/', patientRouter);
+app.use('/', doctorRouter);
 app.use('/data', dataRouter);
 
 //Start Server
